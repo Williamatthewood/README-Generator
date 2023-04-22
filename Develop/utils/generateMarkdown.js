@@ -52,84 +52,79 @@ function renderLicenseLink(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {
-  let licenseSection;
+function renderLicenseSection(licenseBadge, licenseLink) {
+  const licenseSection = `${licenseBadge}
+  
+  This application is covered under the following license. Please click the badge or link for more information:
 
-  switch (license) {
-    case "Apache 2.0 License":
-      licenseSection = "";
-      break;
-    case "GNU GPLv3":
-      licenseLink = "[GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)";
-      break;
-    case "MIT":
-      licenseLink = "[MIT](https://opensource.org/license/mit/)";
-      break;
-    case "ISC License":
-      licenseLink = "[ISC License](https://opensource.org/license/isc-license-txt/)";
-      break;
-    default:
-      licenseLink = "";
-      break;
-  }
+  ${licenseLink}
+    `
+
+    return licenseSection;
 
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-//   return `# 
+  const { title, description, installation, usage, license, contributing, testing, github, email } = data;
+  const licenseBadge = renderLicenseBadge(license);
+  const licenseLink = renderLicenseLink(license);
+  const licenseSection = renderLicenseSection(licenseBadge, licenseLink);
+
+  return `# ${title}
 
 
-//   ## Table of Contents
-//   -[Description](#description)
+  ## Table of Contents
+  -[Description](#description)
   
-//   -[Installation](#installation)
+  -[Installation](#installation)
   
-//   -[Usage](#usage)
+  -[Usage](#usage)
   
-//   -[License](#license)
+  -[License](#license)
   
-//   -[Contributing](#contributing)
+  -[Contributing](#contributing)
   
-//   -[Testing](#testing)
+  -[Testing](#testing)
   
-//   -[Questions?](#questions)
+  -[Questions?](#questions)
   
-//   ## Description
+  ## Description
   
+  ${description}
   
-//   ## Installation 
+  ## Installation 
   
-//   ```
-//   [code snippet]
-//   ```
+  \`\`\`
+  ${installation}
+  \`\`\`
   
-//   ## Usage
+  ## Usage
   
+  ${usage}
   
+  ## License
   
-//   ## License
+  ${licenseSection}
   
+  ## Contributing
   
+  ${contributing}
   
-//   ## Contributing
+  ## Testing
   
+  \`\`\`
+  ${testing}
+  \`\`\`
   
+  ## Questions?
   
-//   ## Testing
+  Contact me on:
   
-//   ```
-//   [code snippet]
-//   ```
+  GitHub - github.com/${github}
   
-//   ## Questions?
-  
-//   Contact me on:
-  
-//   GitHub - 
-  
-//   Email - 
-// `;
+  Email - ${email}
+`;
 }
 
 module.exports = {

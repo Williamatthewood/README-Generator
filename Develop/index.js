@@ -23,7 +23,6 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-    generateMarkdown.renderLicenseBadge("Testing");
     inquirer
         .prompt([
             {
@@ -79,14 +78,7 @@ function init() {
             },
         ])
         .then((answers) => {
-            const { title, description, installation, usage, license, contributing, testing, github, email } = answers;
-            generateMarkdown.renderLicenseBadge(license)
-            //license badge (data.license)
-            //license link (data.license)
-            //license section (data.license)
-            //writefile("README.md",generateMarkdown(data))
-
-            // console.log(answers);
+            writeToFile("README.md",generateMarkdown.generateMarkdown(answers))
         });
 }
 
