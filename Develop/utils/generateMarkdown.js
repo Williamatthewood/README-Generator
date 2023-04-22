@@ -89,39 +89,46 @@ function generateMarkdown(data) {
   
   -[Questions?](#questions)
   
+
   ## Description
   
   ${description}
   
+
   ## Installation 
   
   \`\`\`
   ${installation}
   \`\`\`
   
+
   ## Usage
   
   ${usage}
   
+
   ## License
   
   ${licenseSection}
   
+
   ## Contributing
   
   ${contributing}
   
+
   ## Testing
   
   \`\`\`
   ${testing}
   \`\`\`
   
+
   ## Questions?
   
   Contact me on:
   
-  GitHub - github.com/${github}
+  GitHub - [github.com/${github}](https://github.com/${github})
   
   Email - ${email}
 `;
