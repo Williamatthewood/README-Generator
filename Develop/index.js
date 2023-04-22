@@ -79,12 +79,14 @@ function init() {
             },
         ])
         .then((answers) => {
+            const { title, description, installation, usage, license, contributing, testing, github, email } = answers;
+            generateMarkdown.renderLicenseBadge(license)
             //license badge (data.license)
             //license link (data.license)
             //license section (data.license)
             //writefile("README.md",generateMarkdown(data))
 
-            console.log(answers);
+            // console.log(answers);
         });
 }
 
