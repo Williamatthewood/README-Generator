@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
-const generateMarkdown = require("./generateMarkdown.js");
+const generateMarkdown = require("./utils/generateMarkdown.js");
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -16,10 +16,13 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => err ? console.error(err) : console.log("Successfully created a new file!"));
+}
 
 // TODO: Create a function to initialize app
 function init() {
+    generateMarkdown.renderLicenseBadge("Testing");
     inquirer
         .prompt([
             {
@@ -69,7 +72,14 @@ function init() {
                 message: questions[7],
             },
         ])
-        .then(generateMarkdown(answers));
+        .then((answers) => {
+            //license badge (data.license)
+            //license link (data.license)
+            //license section (data.license)
+            //writefile("README.md",generateMarkdown(data))
+
+            console.log(answers);
+        });
 }
 
 // Function call to initialize app
