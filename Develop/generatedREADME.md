@@ -63,10 +63,3 @@
   GitHub - [github.com/Williamatthewood](https://github.com/Williamatthewood)
   
   Email - w.wood@tcu.edu
-
-  ## Walkthrough Video:
-
-https://drive.google.com/file/d/1TNprVPvyJRYUYjIi6qDjc8jRIGXHybeV/view
-
-
-  
